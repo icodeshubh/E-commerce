@@ -26,7 +26,7 @@ function CategoryMenu() {
       <div className='my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden'>
         <button
           onClick={ () => dispatch(setCategory("All")) }
-          className={`px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-indigo-400 hover:text-white ${selectedCategory === "All" && "bg-indigo-400 text-white"}`}
+          className={ `px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-indigo-400 hover:text-white ${selectedCategory === "All" && "bg-indigo-400 text-white"}` }
         >
           All
         </button>
@@ -37,19 +37,15 @@ function CategoryMenu() {
         { categories.map((category, index) => {
           return (
             <button
-              onClick={
-                () => dispatch(setCategory(category))
-              }
+              onClick={ () => dispatch(setCategory(category)) }
               key={ index }
-              className={`px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-indigo-400 hover:text-white ${selectedCategory === category && "bg-indigo-400 text-white"}`}
+              className={ `px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-indigo-400 hover:text-white ${selectedCategory === category && "bg-indigo-400 text-white"}` }
             >
-              { category }
-
+              { category.charAt(0).toUpperCase() + category.slice(1) }
             </button>
-
-          )
-
+          );
         }) }
+
       </div>
     </div>
   )
